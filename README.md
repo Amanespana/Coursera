@@ -1,3 +1,3 @@
 # Coursera
-All jupyter notebooks from courses on Coursera \n
-Includes: jupyter notebooks from IBM DA Professional Certificate
+- All jupyter notebooks from courses on Coursera
+  - Includes: jupyter notebooks from IBM DA Professional Certificate
