@@ -1,0 +1,20 @@
+Format of report
+
+- Cover Page: Includes title of the project, author name and  publicayion date, any contact details
+
+- Outline: Table of contents: which gives the readers an overview of the contents
+
+- Exceutive Summary: Abstract
+
+- Introdcution: What is the report about, who is the report for, what will the reader gain by reading this report
+
+- Methodology: What dara sources were used, how was the data collected
+ 
+- Results: Main findings and implications using visuals from data as evidence
+
+- Discusion: time to tell the story of overall findings and implications
+
+- Conclusion: Tell about the conclusions you have arrived on
+
+- Appendix: Additional info that you deemed is important
+

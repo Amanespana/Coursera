@@ -1,0 +1,18 @@
+Week - 4
+
+Additional Resources for Dash. To learn more about Dash, explore
+1. Complete dash user guide: https://dash.plotly.com/
+2. Dash core components:     https://dash.plotly.com/dash-core-components
+3. Dash HTML components:     https://dash.plotly.com/dash-html-components
+4. Dash community forum:     https://community.plotly.com/c/dash/16
+5. Related blogs:            https://medium.com/plotly/tagged/dash
+
+
+
+Additional resources for interactive Dashboards
+1. python decorators reference 1: https://realpython.com/primer-on-python-decorators/
+2. python decorators reference 2: https://www.python.org/dev/peps/pep-0318/#current-syntax
+3. Callbacks with example:        https://dash.plotly.com/basic-callbacks
+4. Dash app gallery:              https://dash-gallery.plotly.host/Portal/
+5. Dash community components:     https://plotly.com/dash-community-components/
+

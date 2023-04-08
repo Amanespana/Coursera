@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.7.1/styles/default.min.css">
+  </head>
+  <body>
+    <h1>FLASK API</h1>
+    <center>
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DV0101EN-SkillsNetwork/labs/Module%204/logo.png" width="300" alt="cognitiveclass.ai logo">
+    </center>
+    <h3>Estimated Time : 60 minutes</h3>
+    <h2>Objective</h2>
+    <p>Learn what an API is and when you should use one.</p>
+    <p>Learn how to build a web API that returns data to its users.</p>
+    <h3>What is an API?</h3>
+    <p>In programming more generally, the term API, short for Application Programming Interface, refers to a part of a computer program designed to be used or manipulated by another program.</p>
+    <p>Computer programs frequently need to communicate amongst themselves or with the underlying operating system, and APIs are one way they do it.</p>
+    <p>A web API allows for information or functionality to be manipulated by other programs via the internet.</p>
+    <p>For example, with Twitter’s web API, you can write a program in a language like Python or Javascript that can perform tasks such as favoriting tweets or collecting tweet metadata.</p>
+    <h3>When to Create an API</h3>
+    <p>In general, consider an API if:</p>
+    <ul>
+      <li>
+        <p>Your data set is large, making download via FTP unwieldy or resource-intensive.</p>
+      </li>
+      <li>
+        <p>Your users will need to access your data in real time, such as for display on another website or as part of an application.</p>
+      </li>
+      <li>
+        <p>Your data changes or is updated frequently.</p>
+      </li>
+      <li>
+        <p>Your users only need access to a part of the data at any one time.</p>
+      </li>
+      <li>
+        <p>Your users will need to perform actions other than retrieve data, such as contributing, updating, or deleting data.</p>
+      </li>
+    </ul>
+    <h3>API Terminology</h3>
+    <p>When using or building APIs, you will encounter these terms frequently:</p>
+    <ul>
+      <li>
+        <p>HTTP (Hypertext Transfer Protocol) is the primary means of communicating data on the web. HTTP implements a number of “methods,” which tell which direction data is moving and what should happen to it. The two most common are GET, which pulls data from a server, and POST, which pushes new data to a server.</p>
+      </li>
+      <li>
+        <p>URL (Uniform Resource Locator) - An address for a resource on the web, such as <a href="https://programminghistorian.org/about?utm_medium=Exinfluencer&#x26;utm_source=Exinfluencer&#x26;utm_content=000026UJ&#x26;utm_term=10006555&#x26;utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDA0321ENSkillsNetwork21426264-2022-01-01" target="_blank" rel="external">https://programminghistorian.org/about</a>. A URL consists of a protocol (http://), domain (programminghistorian.org), and optional path (/about). A URL describes the location of a specific resource, such as a web page. When reading about APIs, you may see the terms URL, request, URI, or endpoint used to describe adjacent ideas.</p>
+      </li>
+      <li>
+        <p>JSON (JavaScript Object Notation) is a text-based data storage format that is designed to be easy to read for both humans and machines. JSON is generally the most common format for returning data through an API, XML being the second most common.</p>
+      </li>
+    </ul>
+    <h3>Implementation of web API using Flask</h3>
+    <p><a href="https://flask.palletsprojects.com/en/2.0.x/?utm_medium=Exinfluencer&#x26;utm_source=Exinfluencer&#x26;utm_content=000026UJ&#x26;utm_term=10006555&#x26;utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDA0321ENSkillsNetwork21426264-2022-01-01">Flask</a> is a web framework for Python, meaning that it provides functionality for building web applications, including managing HTTP requests and rendering templates</p>
+    <p>Flask maps HTTP requests to Python functions.</p>
+    <p>Let us understand this with a small example</p>
+    <p>
+      If you have installed jupyter notebook .
+      Create a new notebook and paste these lines of code
+    </p>
+    <pre><code class="hljs language-less"> <span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">flask</span>
+
+<span class="hljs-selector-tag">app</span> = <span class="hljs-selector-tag">flask</span><span class="hljs-selector-class">.Flask</span>(__name__)
+
+
+@<span class="hljs-selector-tag">app</span><span class="hljs-selector-class">.route</span>(<span class="hljs-string">'/'</span>, methods=[<span class="hljs-string">'GET'</span>])
+<span class="hljs-selector-tag">def</span> <span class="hljs-selector-tag">home</span>():
+    <span class="hljs-selector-tag">return</span> "&#x3C;<span class="hljs-selector-tag">h1</span>><span class="hljs-selector-tag">Distant</span> <span class="hljs-selector-tag">Reading</span> <span class="hljs-selector-tag">Archive</span>&#x3C;/<span class="hljs-selector-tag">h1</span>>&#x3C;<span class="hljs-selector-tag">p</span>><span class="hljs-selector-tag">This</span> <span class="hljs-selector-tag">site</span> <span class="hljs-selector-tag">is</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">prototype</span> <span class="hljs-selector-tag">API</span> <span class="hljs-selector-tag">for</span> <span class="hljs-selector-tag">distant</span> <span class="hljs-selector-tag">reading</span> <span class="hljs-selector-tag">of</span> <span class="hljs-selector-tag">science</span> <span class="hljs-selector-tag">fiction</span> <span class="hljs-selector-tag">novels</span>.&#x3C;/<span class="hljs-selector-tag">p</span>>"
+
+<span class="hljs-selector-tag">app</span><span class="hljs-selector-class">.run</span>()
+
+
+</code></pre>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/labs/module%201/Accessing%20Data%20Using%20APIs/one.png">
+    <p>Follow the link above, <a href="http://127.0.0.1:5000/" target="_blank" rel="external">http://127.0.0.1:5000/</a>, using your web browser to see the running application:</p>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/labs/module%201/Accessing%20Data%20Using%20APIs/2.png">
+    <p>In this case, we’ve mapped one URL path (‘/’) to one function, <strong>home</strong>. When we connect to the Flask server at <a href="http://127.0.0.1:5000/" target="_blank" rel="external">http://127.0.0.1:5000/</a>, Flask checks if there is a match between the path provided and a defined function. Since /, or no additional provided path, has been mapped to the home function, Flask runs the code in the function and displays the returned result in the browser.</p>
+    <p>In this case, the returned result is HTML markup for a home page welcoming visitors to the site hosting our API.</p>
+    <p>The process of mapping URLs to functions is called routing.</p>
+    <pre><code class="hljs language-scheme">@app.route(<span class="hljs-symbol">'/</span>', methods=[<span class="hljs-symbol">'GET</span>'])
+
+</code></pre>
+    <p>syntax is the part of the program that lets Flask know that this function, home, should be mapped to the path /. The methods list (methods=['GET']) is a keyword argument that lets Flask know what kind of HTTP requests are allowed.</p>
+    <p>Below are brief explanations of the other components of the application:</p>
+    <ul>
+      <li>
+        <p>import flask — Imports the Flask library, making the code available to the rest of the application.</p>
+      </li>
+      <li>
+        <p>app = flask.Flask(<strong>name</strong>) — Creates the Flask application object, which contains data about the application and also methods (object functions) that tell the application to do certain actions. The last line, app.run(), is one such method.</p>
+      </li>
+      <li>
+        <p>app.config["DEBUG"] = True — Starts the debugger. With this line, if your code is malformed, you’ll see an error when you visit your app. Otherwise you’ll only see a generic message such as Bad Gateway in the browser when there’s a problem with your code.</p>
+      </li>
+      <li>
+        <p>app.run() — A method that runs the application server.</p>
+      </li>
+    </ul>
+    <h2>Creating the API</h2>
+    <p>Now that we have a running Flask application and know a little about what Flask does, we’re finally ready to implement a small API with data that we’ll define right in our application.</p>
+    <p>We’ll be adding our data as a list of Python dictionaries. Dictionaries in Python group pairs of keys and values, like this:</p>
+    <pre><code class="hljs language-scheme">{
+    <span class="hljs-symbol">'key</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'value</span>',
+    <span class="hljs-symbol">'key</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'value</span>'
+}
+
+
+</code></pre>
+    <p>The key identifies the type of information represented, such as title or id. The value is the actual data. For example, a short telephone book might take this format:</p>
+    <pre><code class="hljs language-scheme">[
+    {
+        <span class="hljs-symbol">'name</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'Alexander</span> Graham Bell',
+        <span class="hljs-symbol">'number</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'1-333-444-5555</span>'
+    },
+    {
+        <span class="hljs-symbol">'name</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'Thomas</span> A. Watson',
+        <span class="hljs-symbol">'number</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'1-444-555-6666</span>'
+    }
+]
+
+
+
+</code></pre>
+    <p>The above phone book is a list of two dictionaries. Each dictionary is a phone book entry consisting of two keys, name and number, each paired with a value that provides the actual information.</p>
+    <ul>
+      <li>
+        <p>Here we are creating a list of dictionaries. Each dictionary will contain ID number, title, author, first sentence, and year of publication for each book.</p>
+      </li>
+      <li>
+        <p>We will add 3 route methods</p>
+        <ul>
+          <li>
+            <p>@app.route('/', methods=['GET']) which will map to method home which will return a html response</p>
+          </li>
+          <li>
+            <p>@app.route('/books/all', methods=['GET']) which will map to method api_all returning all book information as a json response.</p>
+          </li>
+          <li>
+            <p>@app.route('/books', methods=['GET']) which will map to method api_id() filterning and returning book information with respect to an id.</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <pre><code class="hljs language-scheme">import flask
+from flask import request, jsonify
+
+app = flask.Flask(<span class="hljs-name">__name__</span>)
+
+# Create some test data for our catalog in the form of a list of dictionaries.
+books = [
+    {<span class="hljs-symbol">'id</span><span class="hljs-symbol">':</span> <span class="hljs-number">0</span>,
+     <span class="hljs-symbol">'title</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'A</span> Fire Upon the Deep',
+     <span class="hljs-symbol">'author</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'Vernor</span> Vinge',
+     <span class="hljs-symbol">'first_sentence</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'The</span> coldsleep itself was dreamless.',
+     <span class="hljs-symbol">'year_published</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'1992</span>'},
+    {<span class="hljs-symbol">'id</span><span class="hljs-symbol">':</span> <span class="hljs-number">1</span>,
+     <span class="hljs-symbol">'title</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'The</span> Ones Who Walk Away From Omelas',
+     <span class="hljs-symbol">'author</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'Ursula</span> K. Le Guin',
+     <span class="hljs-symbol">'first_sentence</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'With</span> a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+     <span class="hljs-symbol">'published</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'1973</span>'},
+    {<span class="hljs-symbol">'id</span><span class="hljs-symbol">':</span> <span class="hljs-number">2</span>,
+     <span class="hljs-symbol">'title</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'Dhalgren</span>',
+     <span class="hljs-symbol">'author</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'Samuel</span> R. Delany',
+     <span class="hljs-symbol">'first_sentence</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'to</span> wound the autumnal city.',
+     <span class="hljs-symbol">'published</span><span class="hljs-symbol">':</span> <span class="hljs-symbol">'1975</span>'}
+]
+
+
+@app.route(<span class="hljs-symbol">'/</span>', methods=[<span class="hljs-symbol">'GET</span>'])
+def home():
+    return ''<span class="hljs-symbol">'&#x3C;h1>Distant</span> Reading Archive&#x3C;/h<span class="hljs-number">1</span>>
+&#x3C;p>A prototype API for distant reading of science fiction novels.&#x3C;/p>'''
+
+
+@app.route(<span class="hljs-symbol">'/books/all</span>', methods=[<span class="hljs-symbol">'GET</span>'])
+def api_all():
+    return jsonify(<span class="hljs-name">books</span>)
+
+
+@app.route(<span class="hljs-symbol">'/books</span>', methods=[<span class="hljs-symbol">'GET</span>'])
+def api_id():
+    # Check if an ID was provided as part of the URL.
+    # If ID is provided, assign it to a variable.
+    # If no ID is provided, display an error in the browser.
+    if <span class="hljs-symbol">'id</span>' in request.args:
+        id = int(<span class="hljs-name">request.args</span>[<span class="hljs-symbol">'id</span>'])
+    else:
+        return <span class="hljs-string">"Error: No id field provided. Please specify an id."</span>
+
+    # Create an empty list for our results
+    results = []
+
+    # Loop through the data and match results that fit the requested ID.
+    # IDs are unique, but other fields might return many results
+    for book in books:
+        if book[<span class="hljs-symbol">'id</span>'] == id:
+            results.append(<span class="hljs-name">book</span>)
+
+    # Use the jsonify function from Flask to convert our list of
+    # Python dictionaries to the JSON format.
+    return jsonify(<span class="hljs-name">results</span>)
+
+app.run()
+
+
+</code></pre>
+    <p>Here when you give the url</p>
+    <p><a href="http://127.0.0.1:5000/books/all" target="_blank" rel="external">http://127.0.0.1:5000/books/all</a></p>
+    <p>you will be able to view the response showing all books . 
+      <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/labs/module%201/Accessing%20Data%20Using%20APIs/three.png">
+    </p>
+    <p>Further if you want to make a specific request, you need to add the filtering criteria like for example in this case <strong>id</strong></p>
+    <p>
+      the url will be as follows
+      <a href="http://127.0.0.1:5000/books?id=0" target="_blank" rel="external">http://127.0.0.1:5000/books?id=0</a>
+      you will be able to view results with respect to id =0 as follows
+    </p>
+    <img src="https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/labs/module%201/Accessing%20Data%20Using%20APIs/four.png">
+    <blockquote>
+      <p>Note :Here the response is a json response.</p>
+    </blockquote>
+    <h3>Here you have learnt how to build a web API that returns data to its users using python web framewok Flask.</h3>
+    <h2>Author</h2>
+    <p><a href="https://www.linkedin.com/in/lakshmi-holla-b39062149/?utm_medium=Exinfluencer&#x26;utm_source=Exinfluencer&#x26;utm_content=000026UJ&#x26;utm_term=10006555&#x26;utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDA0321ENSkillsNetwork21426264-2022-01-01" target="_blank" rel="external">Lakshmi Holla</a></p>
+    <p><a href="https://www.linkedin.com/in/malika-goyal-04798622/?utm_medium=Exinfluencer&#x26;utm_source=Exinfluencer&#x26;utm_content=000026UJ&#x26;utm_term=10006555&#x26;utm_id=NA-SkillsNetwork-Channel-SkillsNetworkCoursesIBMDA0321ENSkillsNetwork21426264-2022-01-01" target="_blank" rel="external">Malika Singla</a></p>
+    <h2>Changelog</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Version</th>
+          <th>Changed by</th>
+          <th>Change Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2021-12-23</td>
+          <td>0.1</td>
+          <td>Lakshmi Holla, Malika Singla</td>
+          <td>Initial Version</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2></h2>
+    <h3 align="center">© IBM Corporation 2021. All rights reserved.</h3>
+    <h3></h3>
+    <script>window.addEventListener('load', function() {
+snFaculty.inject();
+});</script>
+    <script src="https://skills-network-assets.s3.us.cloud-object-storage.appdomain.cloud/scripts/inject.43989f87.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-badge@0.1.9/highlightjs-badge.min.js"></script>
+  </body>
+</html>
