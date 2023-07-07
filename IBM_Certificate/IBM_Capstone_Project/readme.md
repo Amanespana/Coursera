@@ -22,27 +22,27 @@ The collected data is cleaned and preprocessed using Jupyter Notebook to prepare
 ### Programming Language Trends
 
 <p align="center">
-  <img src="IBM_Capstone_Project/ppt_img1.4.png" alt="Image 1" width="500" />
-  <img src="IBM_Capstone_Project/ppt_img2.4.png" alt="Image 2" width="500" />
+  <img src="ppt_img1.4.png" alt="Image 1" width="500" />
+  <img src="ppt_img2.4.png" alt="Image 2" width="500" />
 </p>
 
 ### Database Trends
 
 <p align="center">
-  <img src="IBM_Capstone_Project/ppt_img3.png" alt="Image 1" width="500" />
-  <img src="IBM_Capstone_Project/ppt_img4.png" alt="Image 2" width="500" />
+  <img src="ppt_img3.png" alt="Image 1" width="500" />
+  <img src="ppt_img4.png" alt="Image 2" width="500" />
 </p>
 
 ## Dashboards (IBM Cognos Analytics)
 
 ### Current Technology Dashboard
-<img src="IBM_Capstone_Project/dash_current.png" alt="Alt text" width="1100" height="500">
+<img src="dash_current.png" alt="Alt text" width="1100" height="500">
 
 ### Future Technology Dashboard
-<img src="IBM_Capstone_Project/dash_future.png" alt="Alt text" width="1100" height="500">
+<img src="dash_future.png" alt="Alt text" width="1100" height="500">
 
 ### Demographics Dashboard
-<img src="IBM_Capstone_Project/dash_demogrphics.png" alt="Alt text" width="1100" height="500">
+<img src="dash_demogrphics.png" alt="Alt text" width="1100" height="500">
 
 ## Conclusion
 
